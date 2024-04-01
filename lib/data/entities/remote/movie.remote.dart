@@ -23,15 +23,21 @@ class Movie {
   @JsonKey(name: 'releaseDate')
   final String releaseDate;
   @JsonKey(name: 'averageRating')
-  final int averageRating;
+  final double averageRating;
+  @JsonKey(name: 'originalTitle')
+  final String originalTitle;
   @JsonKey(name: 'storyline')
   final String storyLine;
   @JsonKey(name: 'actors')
   final List<String> actors;
-  @JsonKey(name: 'imdbRating')
-  final dynamic imdbRating;
+  @JsonKey(name: 'imdbRating', fromJson: _fromJson)
+  final String imdbRating;
   @JsonKey(name: 'posterurl')
   final String posterUrl;
+
+  static String _fromJson(dynamic jsonValue) {
+    return jsonValue is String ? "N/A" : "$jsonValue";
+  }
 
   Movie({
     required this.id,
@@ -42,6 +48,7 @@ class Movie {
     required this.poster,
     required this.contentRating,
     required this.duration,
+    required this.originalTitle,
     required this.releaseDate,
     required this.averageRating,
     required this.storyLine,

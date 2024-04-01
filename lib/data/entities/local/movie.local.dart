@@ -8,7 +8,7 @@ class Movie {
   final String contentRating;
   final String duration;
   final String releaseDate;
-  final int averageRating;
+  final double averageRating;
   final String storyLine;
   final List<String> actors;
   final String imdbRating;

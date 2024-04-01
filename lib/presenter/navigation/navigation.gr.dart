@@ -40,6 +40,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: MovieDetailScreen(
           key: args.key,
           movie: args.movie,
+          extendBodyBehindAppBar: args.extendBodyBehindAppBar,
         ),
       );
     },
@@ -100,12 +101,14 @@ class MovieDetailRoute extends PageRouteInfo<MovieDetailRouteArgs> {
   MovieDetailRoute({
     Key? key,
     required Movie movie,
+    bool extendBodyBehindAppBar = true,
     List<PageRouteInfo>? children,
   }) : super(
           MovieDetailRoute.name,
           args: MovieDetailRouteArgs(
             key: key,
             movie: movie,
+            extendBodyBehindAppBar: extendBodyBehindAppBar,
           ),
           initialChildren: children,
         );
@@ -119,15 +122,18 @@ class MovieDetailRouteArgs {
   const MovieDetailRouteArgs({
     this.key,
     required this.movie,
+    this.extendBodyBehindAppBar = true,
   });
 
   final Key? key;
 
   final Movie movie;
 
+  final bool extendBodyBehindAppBar;
+
   @override
   String toString() {
-    return 'MovieDetailRouteArgs{key: $key, movie: $movie}';
+    return 'MovieDetailRouteArgs{key: $key, movie: $movie, extendBodyBehindAppBar: $extendBodyBehindAppBar}';
   }
 }
 

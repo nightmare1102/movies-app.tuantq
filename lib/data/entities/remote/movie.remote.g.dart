@@ -15,11 +15,12 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       poster: json['poster'] as String,
       contentRating: json['contentRating'] as String,
       duration: json['duration'] as String,
+      originalTitle: json['originalTitle'] as String,
       releaseDate: json['releaseDate'] as String,
-      averageRating: json['averageRating'] as int,
+      averageRating: (json['averageRating'] as num).toDouble(),
       storyLine: json['storyline'] as String,
       actors: (json['actors'] as List<dynamic>).map((e) => e as String).toList(),
-      imdbRating: json['imdbRating'],
+      imdbRating: Movie._fromJson(json['imdbRating']),
       posterUrl: json['posterurl'] as String,
     );
 
@@ -34,6 +35,7 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'duration': instance.duration,
       'releaseDate': instance.releaseDate,
       'averageRating': instance.averageRating,
+      'originalTitle': instance.originalTitle,
       'storyline': instance.storyLine,
       'actors': instance.actors,
       'imdbRating': instance.imdbRating,

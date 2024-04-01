@@ -38,7 +38,7 @@ extension ListMovieExt on List<remote.Movie> {
         averageRating: movie.averageRating,
         storyLine: movie.storyLine,
         actors: movie.actors,
-        imdbRating: "${movie.imdbRating}",
+        imdbRating: movie.imdbRating,
         posterUrl: movie.posterUrl,
       ),
     ).toList();

@@ -9,7 +9,7 @@ part 'remote.data_source.g.dart';
 abstract class RemoteDataSource {
   factory RemoteDataSource(NetworkDio dio, {String baseUrl}) = _RemoteDataSource;
 
-  @POST(NetworkUrls.movies)
+  @GET(NetworkUrls.movies)
   Future<List<Movie>> getMovies();
 }
 

@@ -1,14 +1,13 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
 class NetworkDio extends DioForNative implements Interceptor {
-  final String apiKey;
-
-  NetworkDio._(this.apiKey, BaseOptions options) : super(options);
+  NetworkDio._(BaseOptions super.options);
 
   factory NetworkDio({
     required String baseUrl,
-    required String apiKey,
     Map<String, dynamic> headers = const {},
     Duration? connectTimeout,
     Duration? receiveTimeout,
@@ -23,7 +22,7 @@ class NetworkDio extends DioForNative implements Interceptor {
       sendTimeout: sendTimeout ?? const Duration(minutes: 5),
     );
 
-    final instance = NetworkDio._(apiKey, options);
+    final instance = NetworkDio._(options);
 
     instance.interceptors.add(instance);
 
@@ -42,6 +41,13 @@ class NetworkDio extends DioForNative implements Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    return handler.next(response);
+    return handler.next(response.toJson());
+  }
+}
+
+extension ResponseExt on Response {
+  toJson() {
+    data = json.decode(data);
+    return this;
   }
 }
