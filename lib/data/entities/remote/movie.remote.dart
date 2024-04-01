@@ -29,7 +29,7 @@ class Movie {
   @JsonKey(name: 'actors')
   final List<String> actors;
   @JsonKey(name: 'imdbRating')
-  final String imdbRating;
+  final dynamic imdbRating;
   @JsonKey(name: 'posterurl')
   final String posterUrl;
 
