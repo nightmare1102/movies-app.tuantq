@@ -16,14 +16,14 @@ extension MovieExt on remote.Movie {
       averageRating: averageRating,
       storyLine: storyLine,
       actors: actors,
-      imdbRating: imdbRating,
+      imdbRating: "$imdbRating",
       posterUrl: posterUrl,
     );
   }
 }
 
 extension ListMovieExt on List<remote.Movie> {
-  toMovies() {
+  List<Movie> toMovies() {
     return map(
       (movie) => Movie(
         id: movie.id,
@@ -38,7 +38,7 @@ extension ListMovieExt on List<remote.Movie> {
         averageRating: movie.averageRating,
         storyLine: movie.storyLine,
         actors: movie.actors,
-        imdbRating: movie.imdbRating,
+        imdbRating: "${movie.imdbRating}",
         posterUrl: movie.posterUrl,
       ),
     ).toList();

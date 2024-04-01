@@ -10,14 +10,17 @@ class NetworkDio extends DioForNative implements Interceptor {
     required String baseUrl,
     required String apiKey,
     Map<String, dynamic> headers = const {},
+    Duration? connectTimeout,
+    Duration? receiveTimeout,
+    Duration? sendTimeout,
   }) {
     final BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       headers: headers,
       contentType: 'application/json; charset=utf-8',
-      connectTimeout: const Duration(seconds: 30),
-      receiveTimeout: const Duration(seconds: 30),
-      sendTimeout: const Duration(minutes: 5),
+      connectTimeout: connectTimeout ?? const Duration(seconds: 30),
+      receiveTimeout: receiveTimeout ?? const Duration(seconds: 30),
+      sendTimeout: sendTimeout ?? const Duration(minutes: 5),
     );
 
     final instance = NetworkDio._(apiKey, options);

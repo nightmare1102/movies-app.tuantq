@@ -19,7 +19,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       averageRating: json['averageRating'] as int,
       storyLine: json['storyline'] as String,
       actors: (json['actors'] as List<dynamic>).map((e) => e as String).toList(),
-      imdbRating: json['imdbRating'] as String,
+      imdbRating: json['imdbRating'],
       posterUrl: json['posterurl'] as String,
     );
 
