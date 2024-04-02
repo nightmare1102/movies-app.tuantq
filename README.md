@@ -1,5 +1,31 @@
 # Movies Application
 
+## Video
+
+Link: https://drive.google.com/file/d/1eZz3GlfLrUqn2PRpsiEqNllYTF5DUD7F/view?usp=sharing
+
+## Screenshots
+
+### Home Page
+
+<img src="./screenshots/home_1.png" alt="HOME_1" width="200"/><img src="./screenshots/home_2.png" alt="HOME_2" width="200"/>
+
+### Favourite Page
+
+<img src="./screenshots/favourite_1.png" alt="FAVOURITE_1" width="200"/> <img src="./screenshots/favourite_2.png" alt="FAVOURITE_2" width="200"/>
+
+### Movie Detail Page
+
+<img src="./screenshots/movie_detail.png" alt="FAVOURITE_1" width="200"/>
+
+### Profile Page
+
+<img src="./screenshots/profile_page.png" alt="PROFILE" width="200"/>
+
+### Auth Login with Google Page
+
+<img src="./screenshots/auth_login.png" alt="PROFILE" width="200"/>
+
 The interview task is separated into two levels.
 
 You have to cover level 1 as a required stage, but if you continue to the next stage even partially, this will be counted as bonus points in your assessment.
