@@ -52,6 +52,9 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/ic_fav_unchecked.svg
   SvgGenImage get icFavUnchecked => const SvgGenImage('assets/images/svg/ic_fav_unchecked.svg');
 
+  /// File path: assets/images/svg/ic_google.svg
+  SvgGenImage get icGoogle => const SvgGenImage('assets/images/svg/ic_google.svg');
+
   /// File path: assets/images/svg/ic_help.svg
   SvgGenImage get icHelp => const SvgGenImage('assets/images/svg/ic_help.svg');
 
@@ -87,6 +90,7 @@ class $AssetsImagesSvgGen {
         icDuration,
         icFavChecked,
         icFavUnchecked,
+        icGoogle,
         icHelp,
         icLanguage,
         icNations,

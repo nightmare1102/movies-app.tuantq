@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppStates {
   AppStatus get status => throw _privateConstructorUsedError;
   List<Movie> get movies => throw _privateConstructorUsedError;
-
   List<Movie> get favMovies => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -128,7 +127,6 @@ class _$AppStatesImpl implements _AppStates {
   }
 
   final List<Movie> _favMovies;
-
   @override
   @JsonKey()
   List<Movie> get favMovies {
@@ -173,7 +171,6 @@ abstract class _AppStates implements AppStates {
   AppStatus get status;
   @override
   List<Movie> get movies;
-
   @override
   List<Movie> get favMovies;
   @override

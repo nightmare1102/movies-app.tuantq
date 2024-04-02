@@ -15,7 +15,6 @@ class AppBlocs extends Bloc<AppEvents, AppStates> {
     on<GetMoviesStarted>(_onGetMoviesStarted);
     on<RefreshMoviesStarted>(_onRefreshMoviesStarted);
     on<GetFavouriteMovies>(_onGetFavouriteMovies);
-    on<LoginWithSocial>(_onLoginWithSocial);
   }
 
   FutureOr<void> _onGetMoviesStarted(GetMoviesStarted event, Emitter<AppStates> emit) async {
@@ -52,5 +51,4 @@ class AppBlocs extends Bloc<AppEvents, AppStates> {
     ));
   }
 
-  FutureOr<void> _onLoginWithSocial(LoginWithSocial event, Emitter<AppStates> emit) {}
 }

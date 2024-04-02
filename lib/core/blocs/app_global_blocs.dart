@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/di/injecter.dart';
 import 'package:movie_app/presenter/blocs/app_blocs.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_blocs.dart';
 
 class GlobalBlocProviders extends StatelessWidget {
   final Widget child;
@@ -17,6 +18,9 @@ class GlobalBlocProviders extends StatelessWidget {
       providers: [
         BlocProvider<AppBlocs>.value(
           value: provider.get<AppBlocs>(),
+        ),
+        BlocProvider<AuthBloc>.value(
+          value: provider.get<AuthBloc>(),
         ),
       ],
       child: child,

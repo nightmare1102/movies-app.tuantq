@@ -17,14 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DetailMovieEvent {
   String get id => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) toggleFavouriteMovie,
     required TResult Function(String id) getStateFavouriteMovie,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? toggleFavouriteMovie,
@@ -38,14 +36,12 @@ mixin _$DetailMovieEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ToggleFavouriteMovie value) toggleFavouriteMovie,
     required TResult Function(GetStateFavouriteMovie value) getStateFavouriteMovie,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ToggleFavouriteMovie value)? toggleFavouriteMovie,

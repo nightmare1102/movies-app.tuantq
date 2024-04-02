@@ -26,7 +26,6 @@ mixin _$MovieDetailState {
 abstract class $MovieDetailStateCopyWith<$Res> {
   factory $MovieDetailStateCopyWith(MovieDetailState value, $Res Function(MovieDetailState) then) =
       _$MovieDetailStateCopyWithImpl<$Res, MovieDetailState>;
-
   @useResult
   $Res call({bool isFavMovie});
 }
@@ -38,7 +37,6 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -60,7 +58,6 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
 abstract class _$$AppStatesImplCopyWith<$Res> implements $MovieDetailStateCopyWith<$Res> {
   factory _$$AppStatesImplCopyWith(_$AppStatesImpl value, $Res Function(_$AppStatesImpl) then) =
       __$$AppStatesImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({bool isFavMovie});
@@ -124,7 +121,6 @@ abstract class _AppStates implements MovieDetailState {
 
   @override
   bool get isFavMovie;
-
   @override
   @JsonKey(ignore: true)
   _$$AppStatesImplCopyWith<_$AppStatesImpl> get copyWith => throw _privateConstructorUsedError;

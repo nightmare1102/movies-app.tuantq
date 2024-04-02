@@ -1,9 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/extensions/dimension.dart';
 import 'package:movie_app/core/widgets/app.typographies.dart';
 import 'package:movie_app/core/widgets/app_button.dart';
+import 'package:movie_app/di/injecter.dart';
 import 'package:movie_app/gen/assets.gen.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_blocs.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_event.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_selector.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_state.dart';
 import 'package:movie_app/presenter/pages/dashboard/profile/widgets/profile_card_item.dart';
 
 @RoutePage()
@@ -15,25 +21,38 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  void _onHandleLogout() {}
+  final _authBloc = provider.get<AuthBloc>();
+
+  void _onHandleLogout() {
+    _authBloc.add(const AuthLoggedOut());
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _cardGeneral(title: "General"),
-                  _cardMore(title: "More"),
-                ],
-              ),
-            ),
-          ),
-          _buildButtonLogout()
+    return BlocProvider.value(
+      value: _authBloc,
+      child: MultiBlocListener(
+        listeners: [
+          LogoutSuccessListener(listener: _onSuccess),
+          LogoutFailureListener(listener: _onError),
         ],
+        child: Scaffold(
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _cardGeneral(title: "General"),
+                      _cardMore(title: "More"),
+                    ],
+                  ),
+                ),
+              ),
+              _buildButtonLogout()
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -102,5 +121,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
       margin: const EdgeInsets.all(16),
       width: double.infinity,
     );
+  }
+
+  void _onSuccess(BuildContext context, AuthState state) {
+    //TODO: handle success when logout success
+  }
+
+  void _onError(BuildContext context, AuthState state) {
+    //TODO: handle error when logout failure
   }
 }

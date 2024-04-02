@@ -7,8 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/extensions/dimension.dart';
 import 'package:movie_app/core/extensions/navigater.dart';
 import 'package:movie_app/data/entities/local/movie.local.dart';
+import 'package:movie_app/data/usecases/get_info_user.dart';
 import 'package:movie_app/di/injecter.dart';
 import 'package:movie_app/gen/assets.gen.dart';
+import 'package:movie_app/presenter/navigation/navigation.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_blocs.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_event.dart';
+import 'package:movie_app/presenter/pages/auth/blocs/auth_selector.dart';
 import 'package:movie_app/presenter/pages/dashboard/movie_detail/bloc/detail_bloc.dart';
 import 'package:movie_app/presenter/pages/dashboard/movie_detail/bloc/detail_event.dart';
 import 'package:movie_app/presenter/pages/dashboard/movie_detail/bloc/detail_selector.dart';
@@ -35,15 +40,21 @@ class MovieDetailScreen extends StatefulWidget {
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   final _bloc = provider.get<MovieDetailBloc>();
+  final _authBloc = provider.get<AuthBloc>();
 
   @override
   void initState() {
     _bloc.add(GetStateFavouriteMovie(widget.movie.id));
+    _authBloc.add(const AuthGetInfoUser());
     super.initState();
   }
 
   void _onSaveMovie() {
     _bloc.add(ToggleFavouriteMovie(widget.movie.id));
+  }
+
+  void _navigateLogin() {
+    context.navigate(const LoginSocialRoute());
   }
 
   Future<void> _onRefreshMovie() async {
@@ -82,11 +93,15 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     return [
       AppStateFavMoviesSelector(
         builder: (isFav) {
-          return IconButton(
-            onPressed: _onSaveMovie,
-            icon: isFav
-                ? Assets.images.svg.icFavChecked.svg()
-                : Assets.images.svg.icFavUnchecked.svg(),
+          return AuthCheckSessionSelector(
+            builder: (isLogin) {
+              return IconButton(
+                onPressed: isLogin ? _onSaveMovie : _navigateLogin,
+                icon: isFav
+                    ? Assets.images.svg.icFavChecked.svg()
+                    : Assets.images.svg.icFavUnchecked.svg(),
+              );
+            },
           );
         },
       )

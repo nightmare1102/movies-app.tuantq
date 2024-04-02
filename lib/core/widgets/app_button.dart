@@ -15,7 +15,9 @@ class AppButton extends StatelessWidget {
   final TextStyle? textStyle;
   final double? width;
   final double? height;
+  final Decoration? decoration;
   final double fontSize;
+  final Widget icon;
   final AppButtonSize size;
   final EdgeInsets margin;
   final BorderRadius borderRadius;
@@ -29,7 +31,9 @@ class AppButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.color = const Color(0xffFF375F),
     this.overlayColor = Colors.white,
+    this.icon = const SizedBox(),
     this.textStyle,
+    this.decoration,
     this.fontSize = 14,
     this.size = AppButtonSize.normal,
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
@@ -39,13 +43,15 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: decoration,
       margin: margin,
       width: _getWidthStyle(),
       height: _getHeightStyle(),
-      child: ElevatedButton(
+      child: ElevatedButton.icon(
+        icon: icon,
         style: _buttonStyleDefault(),
         onPressed: onPressed,
-        child: Typographies.body(title, style: textStyle ?? _textStyleDefault()),
+        label: Typographies.body(title, style: textStyle ?? _textStyleDefault()),
       ),
     );
   }
