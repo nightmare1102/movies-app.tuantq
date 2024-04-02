@@ -35,7 +35,7 @@ Every task in this list will give you bonus points.
 
 ## Video
 
-Link: https://drive.google.com/file/d/1eZz3GlfLrUqn2PRpsiEqNllYTF5DUD7F/view?usp=sharing
+Link: https://drive.google.com/file/d/1uiuSOsBQBkpDHarkGi6g8GJMhheSsFwZ/view?usp=sharing
 
 ## Screenshots
 
