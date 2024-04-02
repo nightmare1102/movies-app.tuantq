@@ -24,3 +24,13 @@ class AppMoviesSelector extends BlocSelector<AppBlocs, AppStates, List<Movie>> {
           builder: (_, status) => builder(status),
         );
 }
+
+class AppFavMoviesSelector extends BlocSelector<AppBlocs, AppStates, List<Movie>> {
+  AppFavMoviesSelector({
+    super.key,
+    required Widget Function(List<Movie> movies) builder,
+  }) : super(
+          selector: (state) => state.favMovies,
+          builder: (_, status) => builder(status),
+        );
+}

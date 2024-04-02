@@ -8,6 +8,8 @@ import 'package:movie_app/presenter/pages/dashboard/home/home.screen.dart';
 import 'package:movie_app/presenter/pages/dashboard/profile/profile.screen.dart';
 import 'package:movie_app/presenter/pages/dashboard/movie_detail/movie_detail.screen.dart';
 
+import '../pages/auth/login_social.dart';
+
 part 'navigation.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|Screen,Route')

@@ -14,7 +14,7 @@ extension StringExt on String {
   }
 
   String toIMDbString() {
-    if (isEmpty) return "N/A";
+    if (isEmpty || contains("N/A")) return "N/A";
     return "$this/10";
   }
 }

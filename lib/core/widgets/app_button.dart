@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 
 enum AppButtonSize { small, normal, large }
 
@@ -44,10 +45,7 @@ class AppButton extends StatelessWidget {
       child: ElevatedButton(
         style: _buttonStyleDefault(),
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: textStyle ?? _textStyleDefault(),
-        ),
+        child: Typographies.body(title, style: textStyle ?? _textStyleDefault()),
       ),
     );
   }

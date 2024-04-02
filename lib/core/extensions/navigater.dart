@@ -6,7 +6,10 @@ extension NavigatorExt on BuildContext {
     Navigator.pop(this, value);
   }
 
-  void navigate(PageRouteInfo<dynamic> route, {void Function(NavigationFailure)? onFailure}) {
-    router.push(route, onFailure: onFailure);
+  Future<T?> navigate<T extends Object?>(
+    PageRouteInfo<dynamic> route, {
+    void Function(NavigationFailure)? onFailure,
+  }) async {
+    return await router.push(route, onFailure: onFailure);
   }
 }

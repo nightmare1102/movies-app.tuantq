@@ -19,35 +19,44 @@ mixin _$AppEvents {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getMovies,
+    required TResult Function() refreshMovies,
+    required TResult Function() getFavouriteMovies,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getMovies,
+    TResult? Function()? refreshMovies,
+    TResult? Function()? getFavouriteMovies,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getMovies,
+    TResult Function()? refreshMovies,
+    TResult Function()? getFavouriteMovies,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMoviesStarted value) getMovies,
+    required TResult Function(RefreshMoviesStarted value) refreshMovies,
+    required TResult Function(GetFavouriteMovies value) getFavouriteMovies,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetMoviesStarted value)? getMovies,
+    TResult? Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult? Function(GetFavouriteMovies value)? getFavouriteMovies,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMoviesStarted value)? getMovies,
+    TResult Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult Function(GetFavouriteMovies value)? getFavouriteMovies,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +117,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getMovies,
+    required TResult Function() refreshMovies,
+    required TResult Function() getFavouriteMovies,
   }) {
     return getMovies();
   }
@@ -116,6 +127,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getMovies,
+    TResult? Function()? refreshMovies,
+    TResult? Function()? getFavouriteMovies,
   }) {
     return getMovies?.call();
   }
@@ -124,6 +137,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getMovies,
+    TResult Function()? refreshMovies,
+    TResult Function()? getFavouriteMovies,
     required TResult orElse(),
   }) {
     if (getMovies != null) {
@@ -136,6 +151,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetMoviesStarted value) getMovies,
+    required TResult Function(RefreshMoviesStarted value) refreshMovies,
+    required TResult Function(GetFavouriteMovies value) getFavouriteMovies,
   }) {
     return getMovies(this);
   }
@@ -144,6 +161,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetMoviesStarted value)? getMovies,
+    TResult? Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult? Function(GetFavouriteMovies value)? getFavouriteMovies,
   }) {
     return getMovies?.call(this);
   }
@@ -152,6 +171,8 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetMoviesStarted value)? getMovies,
+    TResult Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult Function(GetFavouriteMovies value)? getFavouriteMovies,
     required TResult orElse(),
   }) {
     if (getMovies != null) {
@@ -163,4 +184,220 @@ class _$GetMoviesStartedImpl implements GetMoviesStarted {
 
 abstract class GetMoviesStarted implements AppEvents {
   const factory GetMoviesStarted() = _$GetMoviesStartedImpl;
+}
+
+/// @nodoc
+abstract class _$$RefreshMoviesStartedImplCopyWith<$Res> {
+  factory _$$RefreshMoviesStartedImplCopyWith(
+          _$RefreshMoviesStartedImpl value, $Res Function(_$RefreshMoviesStartedImpl) then) =
+      __$$RefreshMoviesStartedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RefreshMoviesStartedImplCopyWithImpl<$Res>
+    extends _$AppEventsCopyWithImpl<$Res, _$RefreshMoviesStartedImpl>
+    implements _$$RefreshMoviesStartedImplCopyWith<$Res> {
+  __$$RefreshMoviesStartedImplCopyWithImpl(
+      _$RefreshMoviesStartedImpl _value, $Res Function(_$RefreshMoviesStartedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RefreshMoviesStartedImpl implements RefreshMoviesStarted {
+  const _$RefreshMoviesStartedImpl();
+
+  @override
+  String toString() {
+    return 'AppEvents.refreshMovies()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RefreshMoviesStartedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getMovies,
+    required TResult Function() refreshMovies,
+    required TResult Function() getFavouriteMovies,
+  }) {
+    return refreshMovies();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getMovies,
+    TResult? Function()? refreshMovies,
+    TResult? Function()? getFavouriteMovies,
+  }) {
+    return refreshMovies?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovies,
+    TResult Function()? refreshMovies,
+    TResult Function()? getFavouriteMovies,
+    required TResult orElse(),
+  }) {
+    if (refreshMovies != null) {
+      return refreshMovies();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetMoviesStarted value) getMovies,
+    required TResult Function(RefreshMoviesStarted value) refreshMovies,
+    required TResult Function(GetFavouriteMovies value) getFavouriteMovies,
+  }) {
+    return refreshMovies(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetMoviesStarted value)? getMovies,
+    TResult? Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult? Function(GetFavouriteMovies value)? getFavouriteMovies,
+  }) {
+    return refreshMovies?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMoviesStarted value)? getMovies,
+    TResult Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult Function(GetFavouriteMovies value)? getFavouriteMovies,
+    required TResult orElse(),
+  }) {
+    if (refreshMovies != null) {
+      return refreshMovies(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RefreshMoviesStarted implements AppEvents {
+  const factory RefreshMoviesStarted() = _$RefreshMoviesStartedImpl;
+}
+
+/// @nodoc
+abstract class _$$GetFavouriteMoviesImplCopyWith<$Res> {
+  factory _$$GetFavouriteMoviesImplCopyWith(
+          _$GetFavouriteMoviesImpl value, $Res Function(_$GetFavouriteMoviesImpl) then) =
+      __$$GetFavouriteMoviesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFavouriteMoviesImplCopyWithImpl<$Res>
+    extends _$AppEventsCopyWithImpl<$Res, _$GetFavouriteMoviesImpl>
+    implements _$$GetFavouriteMoviesImplCopyWith<$Res> {
+  __$$GetFavouriteMoviesImplCopyWithImpl(
+      _$GetFavouriteMoviesImpl _value, $Res Function(_$GetFavouriteMoviesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetFavouriteMoviesImpl implements GetFavouriteMovies {
+  const _$GetFavouriteMoviesImpl();
+
+  @override
+  String toString() {
+    return 'AppEvents.getFavouriteMovies()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetFavouriteMoviesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getMovies,
+    required TResult Function() refreshMovies,
+    required TResult Function() getFavouriteMovies,
+  }) {
+    return getFavouriteMovies();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getMovies,
+    TResult? Function()? refreshMovies,
+    TResult? Function()? getFavouriteMovies,
+  }) {
+    return getFavouriteMovies?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovies,
+    TResult Function()? refreshMovies,
+    TResult Function()? getFavouriteMovies,
+    required TResult orElse(),
+  }) {
+    if (getFavouriteMovies != null) {
+      return getFavouriteMovies();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetMoviesStarted value) getMovies,
+    required TResult Function(RefreshMoviesStarted value) refreshMovies,
+    required TResult Function(GetFavouriteMovies value) getFavouriteMovies,
+  }) {
+    return getFavouriteMovies(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetMoviesStarted value)? getMovies,
+    TResult? Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult? Function(GetFavouriteMovies value)? getFavouriteMovies,
+  }) {
+    return getFavouriteMovies?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMoviesStarted value)? getMovies,
+    TResult Function(RefreshMoviesStarted value)? refreshMovies,
+    TResult Function(GetFavouriteMovies value)? getFavouriteMovies,
+    required TResult orElse(),
+  }) {
+    if (getFavouriteMovies != null) {
+      return getFavouriteMovies(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFavouriteMovies implements AppEvents {
+  const factory GetFavouriteMovies() = _$GetFavouriteMoviesImpl;
 }

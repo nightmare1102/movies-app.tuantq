@@ -1,0 +1,23 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.8" filter="url(#filter0_b_587_4)">
+        <rect width="32" height="32" rx="12" fill="#252836" />
+    </g>
+    <g clip-path="url(#clip0_587_4)">
+        <path
+            d="M16.0028 24.4995V24.4995L15.997 24.4995C15.9312 24.4999 15.8659 24.4873 15.805 24.4624C15.7444 24.4377 15.6893 24.4013 15.6427 24.3553C15.6425 24.355 15.6422 24.3548 15.642 24.3545L7.87526 16.5778C7.87501 16.5776 7.87477 16.5773 7.87453 16.5771C6.99299 15.6859 6.49854 14.483 6.49854 13.2295C6.49854 11.9762 6.99283 10.7735 7.8741 9.88241C8.76252 8.99712 9.96562 8.5 11.2199 8.5C12.4744 8.5 13.6778 8.99737 14.5663 9.88308C14.5665 9.88325 14.5667 9.88341 14.5668 9.88358L15.6463 10.9631L15.9999 11.3166L16.3534 10.9631L17.4329 9.88358C17.4331 9.88341 17.4333 9.88325 17.4334 9.88308C18.3219 8.99737 19.5253 8.5 20.7799 8.5C22.0341 8.5 23.2372 8.99712 24.1257 9.88242C25.0069 10.7735 25.5012 11.9762 25.5012 13.2295C25.5012 14.4831 25.0067 15.686 24.1252 16.5771C24.125 16.5773 24.1247 16.5776 24.1245 16.5778L16.3578 24.3545C16.3575 24.3548 16.3573 24.355 16.357 24.3553C16.3104 24.4013 16.2553 24.4377 16.1947 24.4624C16.1338 24.4873 16.0686 24.4999 16.0028 24.4995Z"
+            fill="white" stroke="#FF0000" />
+    </g>
+    <defs>
+        <filter id="filter0_b_587_4" x="-4" y="-4" width="40" height="40"
+            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_587_4" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_587_4"
+                result="shape" />
+        </filter>
+        <clipPath id="clip0_587_4">
+            <rect width="24" height="24" fill="white" transform="translate(4 4)" />
+        </clipPath>
+    </defs>
+</svg>

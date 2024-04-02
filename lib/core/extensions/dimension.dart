@@ -6,6 +6,8 @@ extension DimensionExt on BuildContext {
 
   double height() => MediaQuery.of(this).size.height;
 
+  double heightAppbar() => AppBar().preferredSize.height;
+
   SizedBox spaceBox({double? w, double? h}) => SizedBox(width: w, height: h);
 
   EdgeInsets spaceAll({double value = 16}) => EdgeInsets.all(value);

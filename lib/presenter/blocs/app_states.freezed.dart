@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppStates {
   AppStatus get status => throw _privateConstructorUsedError;
-
   List<Movie> get movies => throw _privateConstructorUsedError;
+
+  List<Movie> get favMovies => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStatesCopyWith<AppStates> get copyWith => throw _privateConstructorUsedError;
@@ -28,9 +29,8 @@ mixin _$AppStates {
 abstract class $AppStatesCopyWith<$Res> {
   factory $AppStatesCopyWith(AppStates value, $Res Function(AppStates) then) =
       _$AppStatesCopyWithImpl<$Res, AppStates>;
-
   @useResult
-  $Res call({AppStatus status, List<Movie> movies});
+  $Res call({AppStatus status, List<Movie> movies, List<Movie> favMovies});
 }
 
 /// @nodoc
@@ -39,7 +39,6 @@ class _$AppStatesCopyWithImpl<$Res, $Val extends AppStates> implements $AppState
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -48,6 +47,7 @@ class _$AppStatesCopyWithImpl<$Res, $Val extends AppStates> implements $AppState
   $Res call({
     Object? status = null,
     Object? movies = null,
+    Object? favMovies = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -58,6 +58,10 @@ class _$AppStatesCopyWithImpl<$Res, $Val extends AppStates> implements $AppState
           ? _value.movies
           : movies // ignore: cast_nullable_to_non_nullable
               as List<Movie>,
+      favMovies: null == favMovies
+          ? _value.favMovies
+          : favMovies // ignore: cast_nullable_to_non_nullable
+              as List<Movie>,
     ) as $Val);
   }
 }
@@ -66,10 +70,9 @@ class _$AppStatesCopyWithImpl<$Res, $Val extends AppStates> implements $AppState
 abstract class _$$AppStatesImplCopyWith<$Res> implements $AppStatesCopyWith<$Res> {
   factory _$$AppStatesImplCopyWith(_$AppStatesImpl value, $Res Function(_$AppStatesImpl) then) =
       __$$AppStatesImplCopyWithImpl<$Res>;
-
   @override
   @useResult
-  $Res call({AppStatus status, List<Movie> movies});
+  $Res call({AppStatus status, List<Movie> movies, List<Movie> favMovies});
 }
 
 /// @nodoc
@@ -83,6 +86,7 @@ class __$$AppStatesImplCopyWithImpl<$Res> extends _$AppStatesCopyWithImpl<$Res, 
   $Res call({
     Object? status = null,
     Object? movies = null,
+    Object? favMovies = null,
   }) {
     return _then(_$AppStatesImpl(
       status: null == status
@@ -93,6 +97,10 @@ class __$$AppStatesImplCopyWithImpl<$Res> extends _$AppStatesCopyWithImpl<$Res, 
           ? _value._movies
           : movies // ignore: cast_nullable_to_non_nullable
               as List<Movie>,
+      favMovies: null == favMovies
+          ? _value._favMovies
+          : favMovies // ignore: cast_nullable_to_non_nullable
+              as List<Movie>,
     ));
   }
 }
@@ -100,14 +108,17 @@ class __$$AppStatesImplCopyWithImpl<$Res> extends _$AppStatesCopyWithImpl<$Res, 
 /// @nodoc
 
 class _$AppStatesImpl implements _AppStates {
-  const _$AppStatesImpl({this.status = AppStatus.initial, final List<Movie> movies = const []})
-      : _movies = movies;
+  const _$AppStatesImpl(
+      {this.status = AppStatus.initial,
+      final List<Movie> movies = const [],
+      final List<Movie> favMovies = const []})
+      : _movies = movies,
+        _favMovies = favMovies;
 
   @override
   @JsonKey()
   final AppStatus status;
   final List<Movie> _movies;
-
   @override
   @JsonKey()
   List<Movie> get movies {
@@ -116,9 +127,19 @@ class _$AppStatesImpl implements _AppStates {
     return EqualUnmodifiableListView(_movies);
   }
 
+  final List<Movie> _favMovies;
+
+  @override
+  @JsonKey()
+  List<Movie> get favMovies {
+    if (_favMovies is EqualUnmodifiableListView) return _favMovies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favMovies);
+  }
+
   @override
   String toString() {
-    return 'AppStates(status: $status, movies: $movies)';
+    return 'AppStates(status: $status, movies: $movies, favMovies: $favMovies)';
   }
 
   @override
@@ -127,12 +148,13 @@ class _$AppStatesImpl implements _AppStates {
         (other.runtimeType == runtimeType &&
             other is _$AppStatesImpl &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._movies, _movies));
+            const DeepCollectionEquality().equals(other._movies, _movies) &&
+            const DeepCollectionEquality().equals(other._favMovies, _favMovies));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, const DeepCollectionEquality().hash(_movies));
+  int get hashCode => Object.hash(runtimeType, status, const DeepCollectionEquality().hash(_movies),
+      const DeepCollectionEquality().hash(_favMovies));
 
   @JsonKey(ignore: true)
   @override
@@ -142,14 +164,18 @@ class _$AppStatesImpl implements _AppStates {
 }
 
 abstract class _AppStates implements AppStates {
-  const factory _AppStates({final AppStatus status, final List<Movie> movies}) = _$AppStatesImpl;
+  const factory _AppStates(
+      {final AppStatus status,
+      final List<Movie> movies,
+      final List<Movie> favMovies}) = _$AppStatesImpl;
 
   @override
   AppStatus get status;
-
   @override
   List<Movie> get movies;
 
+  @override
+  List<Movie> get favMovies;
   @override
   @JsonKey(ignore: true)
   _$$AppStatesImplCopyWith<_$AppStatesImpl> get copyWith => throw _privateConstructorUsedError;

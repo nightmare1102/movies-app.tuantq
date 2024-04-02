@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 
 class IMDBIcon extends StatelessWidget {
   final Color backgroundColor;
@@ -25,7 +26,7 @@ class IMDBIcon extends StatelessWidget {
         color: backgroundColor,
       ),
       padding: padding,
-      child: Text(
+      child: Typographies.title(
         name,
         style: textStyle ??
             TextStyle(

@@ -5,8 +5,45 @@ import 'package:movie_app/core/extensions/dimension.dart';
 import 'package:movie_app/core/extensions/string.dart';
 import 'package:movie_app/core/widgets/app.network_image.dart';
 import 'package:movie_app/core/widgets/app.rating.dart';
+import 'package:movie_app/core/widgets/app.shimmer_loading.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 import 'package:movie_app/data/entities/local/movie.local.dart';
 import 'package:movie_app/gen/assets.gen.dart';
+import 'package:shimmer/shimmer.dart';
+
+class ItemMovieLoading extends StatelessWidget {
+  const ItemMovieLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        children: [
+          ShimmerLoading(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              height: 170,
+              width: context.width() / 3,
+            ),
+          ),
+          context.spaceBox(w: 8),
+          Expanded(
+            child: ShimmerLoading(
+              child: Container(
+                color: Colors.white,
+                height: 170,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class ItemMovie extends StatelessWidget {
   final Movie movie;
@@ -39,18 +76,14 @@ class ItemMovie extends StatelessWidget {
             child: Column(
               crossAxisAlignment: crossAxisAlignment,
               children: [
-                _buildTextItem(
-                  title: movie.title,
-                  fontSize: 14,
-                  maxLine: 2,
-                  color: Colors.white,
+                Typographies.title(
+                  movie.title,
+                  maxLines: 2,
                 ),
                 context.spaceBox(h: 4),
-                _buildTextItem(
-                  title: movie.storyLine,
-                  fontSize: 12,
-                  maxLine: 3,
-                  color: Colors.grey,
+                Typographies.body(
+                  movie.storyLine,
+                  maxLines: 3,
                 ),
                 context.spaceBox(h: 8),
                 _buildGenres(
@@ -95,7 +128,7 @@ class ItemMovie extends StatelessWidget {
     Color? color,
     double? fontSize,
   }) {
-    return Text(
+    return Typographies.body(
       title,
       maxLines: maxLine,
       overflow: TextOverflow.ellipsis,
@@ -124,8 +157,6 @@ class ItemMovie extends StatelessWidget {
     String value, {
     EdgeInsets padding = const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
     Color backgroundColor = Colors.white,
-    Color textColor = const Color(0xff1D1C3B),
-    double fontSize = 12,
   }) {
     return Container(
       padding: padding,
@@ -133,11 +164,10 @@ class ItemMovie extends StatelessWidget {
         color: backgroundColor,
         borderRadius: borderRadius,
       ),
-      child: Text(
+      child: Typographies.body(
         value,
-        style: TextStyle(
-          color: textColor,
-          fontSize: fontSize,
+        style: Typographies.captionStyle.copyWith(
+          color: const Color(0xff1D1C3B),
         ),
       ),
     );

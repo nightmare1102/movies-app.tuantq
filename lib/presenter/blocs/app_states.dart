@@ -9,5 +9,6 @@ class AppStates with _$AppStates {
   const factory AppStates({
     @Default(AppStatus.initial) AppStatus status,
     @Default([]) List<Movie> movies,
+    @Default([]) List<Movie> favMovies,
   }) = _AppStates;
 }

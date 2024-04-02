@@ -1,10 +1,9 @@
-import 'package:shared_preferences/shared_preferences.dart';
+abstract class LocalDataSource {
+  Future<List<String>> getFavoriteMovieIds();
 
-class LocalDataSource {
-  static const String _prefix = '@@movie_app';
+  Future<void> toggleFavoriteMovie(String id);
 
-  final String key;
-  final SharedPreferences _storage;
+  Future<bool> getStateFavoriteMovie(String id);
 
-  LocalDataSource(this._storage, {this.key = "default"});
+  Future<void> clearAll();
 }

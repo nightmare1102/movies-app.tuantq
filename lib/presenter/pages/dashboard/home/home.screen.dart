@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/extensions/dimension.dart';
 import 'package:movie_app/core/extensions/navigater.dart';
+import 'package:movie_app/core/widgets/app.empty_data.dart';
+import 'package:movie_app/core/widgets/app.shimmer_loading.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 import 'package:movie_app/data/entities/local/movie.local.dart';
 import 'package:movie_app/data/entities/remote/movie.remote.dart' as remote;
 import 'package:movie_app/data/entities/translator/movie.translator.dart';
@@ -47,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future _onRefresh() async {
-    _bloc.add(const GetMoviesStarted());
+    _bloc.add(const RefreshMoviesStarted());
     return _bloc.stream.firstWhere((state) => state.status != AppStatus.refreshing);
   }
 
@@ -57,34 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _bloc,
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            ..._buildAppBar(),
-            _buildMovies(),
-          ],
-        ),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          CupertinoSliverRefreshControl(
+            onRefresh: _onRefresh,
+          ),
+          _buildMovies(),
+        ],
       ),
     );
-  }
-
-  _buildAppBar({
-    bool pinned = true,
-    double elevation = 0.1,
-  }) {
-    return [
-      SliverAppBar(
-        elevation: elevation,
-        title: _buildTitle(),
-        actions: _buildNotifyIcon(),
-        pinned: pinned,
-      ),
-      CupertinoSliverRefreshControl(
-        onRefresh: _onRefresh,
-      ),
-    ];
   }
 
   Widget _buildMovies() {
@@ -115,42 +100,29 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
   }
 
-  _buildTitle() {
-    return Text(AppEnv.appName);
+  _buildAppTitle() {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.zero,
+      child: Wrap(
+        direction: Axis.vertical,
+        children: [
+          Typographies.title(
+            "Hello, Tran Quoc Tuan",
+          ),
+          Typographies.body(
+            "Let's watch your favorite movie!",
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildLoading() {
     return SliverList.builder(
       itemCount: 10,
       itemBuilder: (context, index) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Row(
-            children: [
-              Shimmer.fromColors(
-                baseColor: Colors.transparent,
-                highlightColor: Colors.white.withOpacity(0.25),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  height: 170,
-                  width: context.width() / 3,
-                ),
-              ),
-              context.spaceBox(w: 8),
-              Expanded(
-                child: Shimmer.fromColors(
-                  baseColor: Colors.transparent,
-                  highlightColor: Colors.white.withOpacity(0.25),
-                  child: Container(
-                    height: 170,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
+        return const ItemMovieLoading();
       },
     );
   }
@@ -160,9 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Padding(
         padding: EdgeInsets.only(top: 24),
         child: Center(
-          child: Text(
-            "Unable to connect to server.\nPlease try again!",
-            textAlign: TextAlign.center,
+          child: AppEmptyData(
+            title: "Unable to connect to server.",
+            subTitle: "Please try again!",
           ),
         ),
       ),
@@ -172,7 +144,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildSuccess() {
     return AppMoviesSelector(
       builder: (List<Movie> movies) {
-        print(movies.length);
         return SliverList.builder(
           itemCount: movies.length,
           itemBuilder: (context, index) {
@@ -184,6 +155,16 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         );
       },
+    );
+  }
+
+  _buildIconUser() {
+    return IconButton(
+      onPressed: () {},
+      icon: const Icon(
+        Icons.account_circle,
+        size: 28,
+      ),
     );
   }
 }

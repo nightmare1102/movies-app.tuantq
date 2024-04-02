@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movie_app/core/extensions/dimension.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 
 class AppRating extends StatelessWidget {
   final String score;
@@ -36,7 +37,7 @@ class AppRating extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       mainAxisAlignment: mainAxisAlignment,
       children: [
-        Text(
+        Typographies.body(
           score,
           style: textStyle ??
               TextStyle(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 
 class ActionWrap extends StatelessWidget {
   final Function() onRateMovie;
@@ -86,7 +87,7 @@ class ActionWrap extends StatelessWidget {
             color: iconColor,
             size: iconSize,
           ),
-          Text(
+          Typographies.body(
             title,
             style: textStyle,
           ),

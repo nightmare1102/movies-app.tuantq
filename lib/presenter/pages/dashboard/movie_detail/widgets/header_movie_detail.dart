@@ -3,6 +3,7 @@ import 'package:movie_app/core/extensions/dimension.dart';
 import 'package:movie_app/core/extensions/string.dart';
 import 'package:movie_app/core/widgets/app.imdb_icon.dart';
 import 'package:movie_app/core/widgets/app.rating.dart';
+import 'package:movie_app/core/widgets/app.typographies.dart';
 import 'package:movie_app/core/widgets/app_button.dart';
 import 'package:movie_app/presenter/pages/dashboard/movie_detail/widgets/image_view_movie_detail.dart';
 
@@ -78,28 +79,23 @@ class HeaderMovieDetail extends StatelessWidget {
       fontWeight: FontWeight.bold,
       fontSize: 24,
     ),
-    int maxLines = 3,
   }) {
-    return Text(
+    return Typographies.title(
       title,
       style: style,
-      maxLines: maxLines,
+      maxLines: 3,
     );
   }
 
   Widget _buildWrapYearAndDuration({
     int maxLines = 1,
     TextOverflow overflow = TextOverflow.ellipsis,
-    TextStyle style = const TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 14,
-    ),
   }) {
     return RichText(
       overflow: overflow,
       maxLines: maxLines,
       text: TextSpan(
-        style: style,
+        style: Typographies.bodyStyle.copyWith(color: Colors.white),
         children: [
           TextSpan(text: year.toSpecial()),
           TextSpan(text: duration.toFormatDuration()),
@@ -112,7 +108,10 @@ class HeaderMovieDetail extends StatelessWidget {
     return RichText(
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
-      text: TextSpan(text: genres.toListString()),
+      text: TextSpan(
+        style: Typographies.bodyStyle.copyWith(color: Colors.white),
+        text: genres.toListString(),
+      ),
     );
   }
 
@@ -141,10 +140,10 @@ class HeaderMovieDetail extends StatelessWidget {
       spacing: 10,
       children: [
         const IMDBIcon(),
-        Text(
+        Typographies.body(
           imdbRating.toIMDbString(),
           style: style,
-        )
+        ),
       ],
     );
   }
